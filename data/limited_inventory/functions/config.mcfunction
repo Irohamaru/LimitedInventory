@@ -1,0 +1,15 @@
+#Config
+scoreboard players enable @s LimitedInventory
+
+execute if score #KeepMainhand LimitedInventory matches 1 run data modify storage limited_inventory: Config.Mainhand set value '{"text":"<Mainhand>","color":"gold","clickEvent":{"action":"run_command","value":"/trigger LimitedInventory set 1"}}'
+execute unless score #KeepMainhand LimitedInventory matches 1 run data modify storage limited_inventory: Config.Mainhand set value '{"text":"<Mainhand>","color":"white","clickEvent":{"action":"run_command","value":"/trigger LimitedInventory set 2"}}'
+execute if score #KeepOffhand LimitedInventory matches 1 run data modify storage limited_inventory: Config.Offhand set value '{"text":"<Offhand>","color":"gold","clickEvent":{"action":"run_command","value":"/trigger LimitedInventory set 3"}}'
+execute unless score #KeepOffhand LimitedInventory matches 1 run data modify storage limited_inventory: Config.Offhand set value '{"text":"<Offhand>","color":"white","clickEvent":{"action":"run_command","value":"/trigger LimitedInventory set 4"}}'
+execute if score #KeepHotbar LimitedInventory matches 1 run data modify storage limited_inventory: Config.Hotbar set value '{"text":"<Hotbar>","color":"gold","clickEvent":{"action":"run_command","value":"/trigger LimitedInventory set 5"}}'
+execute unless score #KeepHotbar LimitedInventory matches 1 run data modify storage limited_inventory: Config.Hotbar set value '{"text":"<Hotbar>","color":"white","clickEvent":{"action":"run_command","value":"/trigger LimitedInventory set 6"}}'
+execute if score #KeepEquipment LimitedInventory matches 1 run data modify storage limited_inventory: Config.Equipment set value '{"text":"<Equipment>","color":"gold","clickEvent":{"action":"run_command","value":"/trigger LimitedInventory set 7"}}'
+execute unless score #KeepEquipment LimitedInventory matches 1 run data modify storage limited_inventory: Config.Equipment set value '{"text":"<Equipment>","color":"white","clickEvent":{"action":"run_command","value":"/trigger LimitedInventory set 8"}}'
+execute if score #KeepInventory LimitedInventory matches 1 run data modify storage limited_inventory: Config.Inventory set value '{"text":"<Inventory>","color":"gold","clickEvent":{"action":"run_command","value":"/trigger LimitedInventory set 9"}}'
+execute unless score #KeepInventory LimitedInventory matches 1 run data modify storage limited_inventory: Config.Inventory set value '{"text":"<Inventory>","color":"white","clickEvent":{"action":"run_command","value":"/trigger LimitedInventory set 10"}}'
+
+tellraw @s [{"text":"Keep: ","color":"gold"},{"storage":"limited_inventory:","nbt":"Config.Mainhand","interpret":true},{"text":" "},{"storage":"limited_inventory:","nbt":"Config.Offhand","interpret":true},{"text":" "},{"storage":"limited_inventory:","nbt":"Config.Hotbar","interpret":true},{"text":" "},{"storage":"limited_inventory:","nbt":"Config.Equipment","interpret":true},{"text":" "},{"storage":"limited_inventory:","nbt":"Config.Inventory","interpret":true}]
